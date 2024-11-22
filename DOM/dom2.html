@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body style="background-color : black ; color : white">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednseday</div>
+        <div class="day">thursday</div>  
+    </div>
+</body>
+<script>
+    const par = document.querySelector(".parent")
+    console.log(par);
+    const arr = Array.from(par.children);
+
+    arr.forEach((i) => {
+        i.style.color = "gold";
+        i.style.backgroundColor = "white";
+        i.style.padding ="100px"
+        console.log(i.innerHTML)
+        par.firstElementChild.innerHTML = "anish morde"
+        
+    })
+</script>
+</html>

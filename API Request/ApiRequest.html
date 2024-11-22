@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      style="
+        height: 300px;
+        width: 300px;
+        background-color: #212121;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+      "
+      class="main"
+    >
+      <img
+        style="
+          height: 100px;
+          background-color: aqua;
+          width: 100px;
+          color: rgb(0, 0, 0);
+        "
+        id="photo"
+        src=""
+        alt=""
+      />
+      <div style="color: white" id="followers"></div>
+    </div>
+
+    <script>
+      const photo = document.getElementById("photo");
+      const followers = document.getElementById("followers");
+      const reqUrl = "https://api.github.com/users/hiteshchoudhary";
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", reqUrl);
+      xhr.onreadystatechange = function () {
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+          const data = JSON.parse(this.responseText);
+          photo.src = data.avatar_url;
+          console.log(data.avatar_url);
+          followers.innerHTML = data.followers;
+          console.log(data.followers);
+        }
+      };
+
+      xhr.send();
+    </script>
+  </body>
+</html>
