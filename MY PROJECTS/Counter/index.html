@@ -12,8 +12,12 @@
     <button id="reset">Reset</button>
     <span id="display" >0</span>
 
+    <button id="color">Change Color</button>
+
     <script>
         let val = 0;
+        const body = document.querySelector('body');
+        console.log(body)
         const increment = document.getElementById('increment')
         const decrement = document.getElementById('decrement')
         const reset = document.getElementById('reset')
@@ -34,6 +38,24 @@
             display.innerHTML = val;
         })
 
+        const color = document.getElementById('color')
+          
+        color.addEventListener('click', ()=>{
+            const str = "0123456789ABCDF"
+            let ramColor = '#';
+
+            for(let i=0;i<6;i++){
+                ramColor+=str.charAt(Math.floor(Math.random()*15))
+                console.log(ramColor)
+            }
+           
+            body.style.backgroundColor = ramColor ;
+
+            
+
+        })
+
+        
     </script>
     
 </body>
